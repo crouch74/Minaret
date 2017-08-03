@@ -168,6 +168,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrap.cs" />
+    <Compile Include="Modules\ClusterModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

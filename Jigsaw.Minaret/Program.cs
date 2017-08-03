@@ -11,18 +11,18 @@ namespace Jigsaw.Minaret
 {
     class Program
     {
-        private static ActorSystem _actorSystem;
-
+        public static ActorSystem ActorSystem;
+        public static IActorRef ClusterManagerActor;
         static void Main(string[] args)
         {
             var config = ConfigurationFactory.Load();
             var apiPort = config.GetString("akka.minaret.api-port");
             var systemName = config.GetString("akka.minaret.system");
 
-            _actorSystem = InitializeActorSystem(systemName);
-            ConfigureDependencyResolver(_actorSystem);
+            ActorSystem = InitializeActorSystem(systemName);
+            ConfigureDependencyResolver(ActorSystem);
 
-            _actorSystem.ActorOf(_actorSystem.DI().Props<ClusterManagerActor>(), "ClusterManager");
+            ClusterManagerActor = ActorSystem.ActorOf(ActorSystem.DI().Props<ClusterManagerActor>(), "ClusterManager");
             StartWebApp(apiPort);
         }
 
@@ -39,7 +39,7 @@ namespace Jigsaw.Minaret
                 Console.WriteLine($"Running on {url}");
                 Console.WriteLine("Press enter to exit");
                 Console.ReadLine();
-                _actorSystem.Terminate();
+                ActorSystem.Terminate();
             }
         }
 
