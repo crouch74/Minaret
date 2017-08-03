@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Akka.Actor;
 using Akka.Configuration;
-using Nancy.Hosting.Self;
+using Microsoft.Owin.Hosting;
 
 namespace Jigsaw.Minaret
 {
@@ -20,7 +16,7 @@ namespace Jigsaw.Minaret
             var systemName = config.GetString("akka.minaret.system");
 
             _actorSystem = InitializeActorSystem(systemName);
-            StartNancyFxHost(apiPort);
+            StartWebApp(apiPort);
         }
 
         private static ActorSystem InitializeActorSystem(string systemName)
@@ -28,19 +24,13 @@ namespace Jigsaw.Minaret
             return ActorSystem.Create(systemName);
         }
 
-        private static void StartNancyFxHost(string port)
+        private static void StartWebApp(string port)
         {
-            var config = new HostConfiguration
+            var url = $"http://+:{port}";
+            using (WebApp.Start<Startup>(url))
             {
-                UrlReservations = new UrlReservations()
-                {
-                    CreateAutomatically = true
-                }
-            };
-            using (var host = new NancyHost(config, new Uri($"http://localhost:{port}")))
-            {
-                host.Start();
-                Console.WriteLine($"Running on http://localhost:{port}");
+                Console.WriteLine($"Running on {url}");
+                Console.WriteLine("Press enter to exit");
                 Console.ReadLine();
                 _actorSystem.Terminate();
             }
