@@ -1,6 +1,10 @@
 ﻿using System;
 using Akka.Actor;
 using Akka.Configuration;
+using Akka.DI.AutoFac;
+using Akka.DI.Core;
+using Autofac;
+using Jigsaw.Minaret.Actors;
 using Microsoft.Owin.Hosting;
 
 namespace Jigsaw.Minaret
@@ -16,6 +20,9 @@ namespace Jigsaw.Minaret
             var systemName = config.GetString("akka.minaret.system");
 
             _actorSystem = InitializeActorSystem(systemName);
+            ConfigureDependencyResolver(_actorSystem);
+
+            _actorSystem.ActorOf(_actorSystem.DI().Props<ClusterManagerActor>(), "ClusterManager");
             StartWebApp(apiPort);
         }
 
@@ -34,6 +41,16 @@ namespace Jigsaw.Minaret
                 Console.ReadLine();
                 _actorSystem.Terminate();
             }
+        }
+
+        private static void ConfigureDependencyResolver(ActorSystem system)
+        {
+            var builder = new ContainerBuilder();
+
+            builder.RegisterType<ClusterManagerActor>();
+
+            var container = builder.Build();
+            new AutoFacDependencyResolver(container, system);
         }
     }
 }
