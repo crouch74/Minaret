@@ -1,6 +1,7 @@
 ﻿using System;
 using Akka.Actor;
 using Akka.Cluster;
+using Jigsaw.Minaret.Actors.Messages;
 
 namespace Jigsaw.Minaret.Actors
 {
@@ -17,8 +18,11 @@ namespace Jigsaw.Minaret.Actors
 
         public void Receiving()
         {
-            Receive<Messages.GetClusterStatusMessage>(message => HandleGetClusterStatusMessage());
+            Receive<GetClusterStatusMessage>(message => HandleGetClusterStatusMessage());
             Receive<ClusterEvent.CurrentClusterState>(message => HandleCurrentClusterStateEvent(message));
+            Receive<LeaveClusterMessage>(message => HandleLeaveClusterMessage(message));
+            Receive<DownClusterMessage>(message => HandleDownClusterMessage(message));
+            Receive<JoinClusterMessage>(message => HandleUpClusterMessage(message));
             ReceiveAny(message => RefreshClusterState());
         }
 
@@ -31,6 +35,19 @@ namespace Jigsaw.Minaret.Actors
         {
             RefreshClusterState();
             Sender.Tell(_currentState);
+        }
+        private void HandleLeaveClusterMessage(LeaveClusterMessage message)
+        {
+            _cluster.Leave(message.Address);
+        }
+        private void HandleUpClusterMessage(JoinClusterMessage message)
+        {
+            _cluster.Join(message.Address);
+        }
+
+        private void HandleDownClusterMessage(DownClusterMessage message)
+        {
+            _cluster.Down(message.Address);
         }
 
         private void RefreshClusterState()

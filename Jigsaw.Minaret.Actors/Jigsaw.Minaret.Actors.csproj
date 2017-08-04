@@ -140,7 +140,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClusterManagerActor.cs" />
+    <Compile Include="Messages\BaseClusterMessage.cs" />
+    <Compile Include="Messages\DownClusterMessage.cs" />
     <Compile Include="Messages\GetClusterStatusMessage.cs" />
+    <Compile Include="Messages\LeaveClusterMessage.cs" />
+    <Compile Include="Messages\JoinClusterMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
