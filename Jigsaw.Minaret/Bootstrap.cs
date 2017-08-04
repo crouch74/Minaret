@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nancy;
+using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -17,6 +18,14 @@ namespace Jigsaw.Minaret
             base.ConfigureApplicationContainer(container);
 
             container.Register<JsonSerializer, CustomJsonSerializer>();
+        }
+
+        protected override void RequestStartup(TinyIoCContainer container, IPipelines pipelines, NancyContext context)
+        {
+            pipelines.AfterRequest.AddItemToEndOfPipeline((ctx) =>
+            {
+                ctx.Response.WithHeader("Access-Control-Allow-Origin", "*");
+            });
         }
     }
 
