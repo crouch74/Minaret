@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigsaw.Minaret", "Jigsaw.Minaret\Jigsaw.Minaret.csproj", "{5310AB99-FDFD-447A-838F-EA391D01DE60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minaret", "Minaret\Minaret.csproj", "{5310AB99-FDFD-447A-838F-EA391D01DE60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigsaw.Minaret.Actors", "Jigsaw.Minaret.Actors\Jigsaw.Minaret.Actors.csproj", "{CDFA02CD-1E2B-41BE-8BB1-A52A2C46F70C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minaret.Actors", "Minaret.Actors\Minaret.Actors.csproj", "{CDFA02CD-1E2B-41BE-8BB1-A52A2C46F70C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

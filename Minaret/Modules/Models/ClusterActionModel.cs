@@ -1,4 +1,4 @@
-﻿namespace Jigsaw.Minaret.Modules.Models
+﻿namespace Minaret.Modules.Models
 {
     public class ClusterActionModel
     {

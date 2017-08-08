@@ -4,10 +4,10 @@ using Akka.Configuration;
 using Akka.DI.AutoFac;
 using Akka.DI.Core;
 using Autofac;
-using Jigsaw.Minaret.Actors;
 using Microsoft.Owin.Hosting;
+using Minaret.Actors;
 
-namespace Jigsaw.Minaret
+namespace Minaret
 {
     class Program
     {

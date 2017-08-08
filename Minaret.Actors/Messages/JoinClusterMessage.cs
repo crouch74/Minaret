@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jigsaw.Minaret.Actors.Messages
+namespace Minaret.Actors.Messages
 {
     public class JoinClusterMessage : BaseClusterMessage
     {

@@ -2,14 +2,14 @@
 using System.Text.RegularExpressions;
 using Akka.Actor;
 
-namespace Jigsaw.Minaret.Actors.Messages
+namespace Minaret.Actors.Messages
 {
     public abstract class BaseClusterMessage
     {
         public Address Address { get; private set; }
         protected BaseClusterMessage(string address)
         {
-            // address : akka.tcp://JigsawProfilerSystem@localhost:4035
+            // address : akka.tcp://MinaretSystem@localhost:4035
             var regex = new Regex("(.*)\\:\\/\\/(\\w+)@(\\w+):(\\d+)");
             var matches = regex.Match(address).Groups;
             if (matches.Count < 5)

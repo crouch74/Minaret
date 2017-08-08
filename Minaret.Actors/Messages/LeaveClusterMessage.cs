@@ -1,4 +1,4 @@
-﻿namespace Jigsaw.Minaret.Actors.Messages
+﻿namespace Minaret.Actors.Messages
 {
     public class LeaveClusterMessage : BaseClusterMessage
     {

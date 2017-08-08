@@ -1,6 +1,6 @@
 ﻿using Owin;
 
-namespace Jigsaw.Minaret
+namespace Minaret
 {
     public class Startup
     {

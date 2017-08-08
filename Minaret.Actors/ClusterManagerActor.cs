@@ -1,9 +1,9 @@
 ﻿using System;
 using Akka.Actor;
 using Akka.Cluster;
-using Jigsaw.Minaret.Actors.Messages;
+using Minaret.Actors.Messages;
 
-namespace Jigsaw.Minaret.Actors
+namespace Minaret.Actors
 {
     public class ClusterManagerActor : ReceiveActor
     {

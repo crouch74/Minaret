@@ -9,7 +9,7 @@ using Nancy.TinyIoc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Jigsaw.Minaret
+namespace Minaret
 {
     public class Bootstrap : DefaultNancyBootstrapper
     {

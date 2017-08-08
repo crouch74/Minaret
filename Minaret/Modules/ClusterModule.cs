@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Akka.Actor;
 using Akka.Cluster;
-using Jigsaw.Minaret.Actors.Messages;
-using Jigsaw.Minaret.Modules.Models;
+using Minaret.Actors.Messages;
+using Minaret.Modules.Models;
 using Nancy;
 using Nancy.ModelBinding;
 
-namespace Jigsaw.Minaret.Modules
+namespace Minaret.Modules
 {
     public class ClusterModule : NancyModule
     {

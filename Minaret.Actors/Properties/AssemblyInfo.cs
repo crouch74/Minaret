@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Jigsaw.Minaret")]
+[assembly: AssemblyTitle("Minaret.Actors")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Jigsaw.Minaret")]
+[assembly: AssemblyProduct("Minaret.Actors")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5310ab99-fdfd-447a-838f-ea391d01de60")]
+[assembly: Guid("cdfa02cd-1e2b-41be-8bb1-a52a2c46f70c")]
 
 // Version information for an assembly consists of the following four values:
 //
