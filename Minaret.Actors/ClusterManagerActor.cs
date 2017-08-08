@@ -2,16 +2,18 @@
 using Akka.Actor;
 using Akka.Cluster;
 using Minaret.Actors.Messages;
+using Minaret.Helpers.Interfaces;
 
 namespace Minaret.Actors
 {
     public class ClusterManagerActor : ReceiveActor
     {
-        private readonly Cluster _cluster = Cluster.Get(Context.System);
+        private IClusterWrapper _clusterWrapper;
         private ClusterEvent.CurrentClusterState _currentState;
-        public ClusterManagerActor()
+        public ClusterManagerActor(IClusterWrapper clusterWrapper)
         {
-            _cluster.Subscribe(Self, typeof(ClusterEvent.IClusterDomainEvent));
+            _clusterWrapper = clusterWrapper;
+            _clusterWrapper.Subscribe(Self, typeof(ClusterEvent.IClusterDomainEvent));
             RefreshClusterState();
             Become(Receiving);
         }
@@ -38,21 +40,21 @@ namespace Minaret.Actors
         }
         private void HandleLeaveClusterMessage(LeaveClusterMessage message)
         {
-            _cluster.Leave(message.Address);
+            _clusterWrapper.Leave(message.Address);
         }
         private void HandleUpClusterMessage(JoinClusterMessage message)
         {
-            _cluster.Join(message.Address);
+            _clusterWrapper.Join(message.Address);
         }
 
         private void HandleDownClusterMessage(DownClusterMessage message)
         {
-            _cluster.Down(message.Address);
+            _clusterWrapper.Down(message.Address);
         }
 
         private void RefreshClusterState()
         {
-            _cluster.SendCurrentClusterState(Self);
+            _clusterWrapper.SendCurrentClusterState(Self);
         }
     }
 }

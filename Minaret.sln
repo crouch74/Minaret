@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minaret", "Minaret\Minaret.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minaret.Actors", "Minaret.Actors\Minaret.Actors.csproj", "{CDFA02CD-1E2B-41BE-8BB1-A52A2C46F70C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minaret.Helpers", "Minaret.Helpers\Minaret.Helpers.csproj", "{14052767-FF69-4E99-BA0F-A391A3987914}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CDFA02CD-1E2B-41BE-8BB1-A52A2C46F70C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDFA02CD-1E2B-41BE-8BB1-A52A2C46F70C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDFA02CD-1E2B-41BE-8BB1-A52A2C46F70C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14052767-FF69-4E99-BA0F-A391A3987914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14052767-FF69-4E99-BA0F-A391A3987914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14052767-FF69-4E99-BA0F-A391A3987914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14052767-FF69-4E99-BA0F-A391A3987914}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
