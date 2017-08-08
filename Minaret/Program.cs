@@ -6,6 +6,8 @@ using Akka.DI.Core;
 using Autofac;
 using Microsoft.Owin.Hosting;
 using Minaret.Actors;
+using Minaret.Helpers;
+using Minaret.Helpers.Interfaces;
 
 namespace Minaret
 {
@@ -48,7 +50,8 @@ namespace Minaret
             var builder = new ContainerBuilder();
 
             builder.RegisterType<ClusterManagerActor>();
-
+            builder.RegisterType<ClusterWrapper>().As<IClusterWrapper>();
+            builder.RegisterInstance(system);
             var container = builder.Build();
             new AutoFacDependencyResolver(container, system);
         }

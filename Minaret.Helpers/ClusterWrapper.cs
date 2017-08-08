@@ -8,9 +8,9 @@ namespace Minaret.Helpers
     {
         private readonly Cluster _cluster;
 
-        public ClusterWrapper(Cluster cluster)
+        public ClusterWrapper(ActorSystem system)
         {
-            _cluster = cluster;
+            _cluster = Akka.Cluster.Cluster.Get(system);
         }
         public void Leave(Address address)
         {

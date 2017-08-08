@@ -184,6 +184,10 @@
       <Project>{cdfa02cd-1e2b-41be-8bb1-a52a2c46f70c}</Project>
       <Name>Minaret.Actors</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Minaret.Helpers\Minaret.Helpers.csproj">
+      <Project>{14052767-FF69-4E99-BA0F-A391A3987914}</Project>
+      <Name>Minaret.Helpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
