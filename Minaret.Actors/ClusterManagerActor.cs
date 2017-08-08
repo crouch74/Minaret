@@ -25,7 +25,11 @@ namespace Minaret.Actors
             Receive<LeaveClusterMessage>(message => HandleLeaveClusterMessage(message));
             Receive<DownClusterMessage>(message => HandleDownClusterMessage(message));
             Receive<JoinClusterMessage>(message => HandleUpClusterMessage(message));
-            ReceiveAny(message => RefreshClusterState());
+            ReceiveAny(message =>
+            {
+                var m = message;
+                RefreshClusterState();
+            });
         }
 
         private void HandleCurrentClusterStateEvent(ClusterEvent.CurrentClusterState message)
